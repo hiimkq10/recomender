@@ -7,6 +7,6 @@ incomes = [
     { 'description': 'salary', 'amount': 5400 }
 ]
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index():
     return jsonify(incomes)
