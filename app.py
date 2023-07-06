@@ -12,7 +12,7 @@ def index():
     data = request.json
     if (data['ids'] is None):
         return {
-            'status': 10001,
+            'status': 400,
             'data': None,
             'message': "Data invalid"
         }
@@ -36,7 +36,7 @@ def index():
     for i in tf.keras.backend.get_value(titles[0][:20]):
         predict_arr.append(tf.compat.as_str_any(i))
     result = {
-        'status': 400,
+        'status': 200,
         'ids':  predict_arr,
         'message': "SUCCESSFUL"
     }
