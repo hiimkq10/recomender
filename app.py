@@ -1,6 +1,4 @@
 from flask import Flask, jsonify
-import tensorflow as tf
-import tensorflow_recommenders as tfrs
 
 app = Flask(__name__)
 
