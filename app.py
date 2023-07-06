@@ -10,6 +10,3 @@ incomes = [
 @app.route('/')
 def index():
     return jsonify(incomes)
-
-if __name__ == "__main__":
-    app.run(debug=False)
