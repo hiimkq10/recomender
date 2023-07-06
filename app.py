@@ -1,4 +1,5 @@
 from flask import Flask, jsonify
+import tensorflow as tf
 
 app = Flask(__name__)
 
