@@ -13,6 +13,7 @@ def index():
     if (data['ids'] is None):
         return {
             'status': 10001,
+            'data': None,
             'message': "Data invalid"
         }
 
@@ -23,9 +24,8 @@ def index():
             input.append(tf.compat.as_bytes(i))
     n = 30
     fill = [b'0'] * n
-    input = input[:n] + fill[len(input):]
     random.shuffle(input)
-    print(input)
+    input = input[:n] + fill[len(input):]
 
     # Load model and predict 
     model = tf.saved_model.load("")
@@ -36,7 +36,9 @@ def index():
     for i in tf.keras.backend.get_value(titles[0][:20]):
         predict_arr.append(tf.compat.as_str_any(i))
     result = {
-        'ids':  predict_arr
+        'status': 400,
+        'ids':  predict_arr,
+        'message': "SUCCESSFUL"
     }
     return jsonify(result)
 
